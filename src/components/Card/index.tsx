@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
+import DefaultPicture from '../../assets/profile.png';
 
 //Styler les composants
 const CardLabel = styled.span`
@@ -56,4 +57,9 @@ Card.propTypes = {
     picture: PropTypes.string.isRequired,
 };
 
+Card.defaultProps = {
+    label: '',
+    title: '',
+    picture: DefaultPicture,
+};
 export default Card;

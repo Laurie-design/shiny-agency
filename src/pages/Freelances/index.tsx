@@ -11,6 +11,11 @@ const CardsContainer = styled.div`
 function Freelances() {
     const freelanceProfiles = [
         {
+            name: 'Aimee Mardja',
+            jobTitle: 'Développeuse Fullstack',
+            picture: DefaultPicture,
+        },
+        {
             name: 'Jane Doe',
             jobTitle: 'Devops',
             picture: DefaultPicture,
@@ -22,7 +27,7 @@ function Freelances() {
         },
         {
             name: 'Jeanne Biche',
-            jobTitle: 'Développeuse Fullstack',
+            jobTitle: 'Développeuse backend',
             picture: DefaultPicture,
         },
     ];

@@ -1,34 +1,32 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import colors from '../../utils/style/colors';
+import { StyledLink } from '../../utils/style/Atoms';
+import DarkLogo from '../../assets/dark-logo.png';
 
-// Ajoutez cette interface pour typer la prop personnalisée
-interface StyledLinkProps {
-    $isFullLink?: boolean;
-}
+const HomeLogo = styled.img`
+    height: 70px;
+`;
 
-// Styliser les bibliothèques
-const StyledLink = styled(Link)<StyledLinkProps>`
-    padding: 15px;
-    color: #8186a0;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    ${(props) =>
-        props.$isFullLink &&
-        `color: white; border-radius: 30px; background-color: ${colors.primary}; padding-top: 20px;`}
+const NavContainer = styled.nav`
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 function Header() {
     return (
-        <nav>
+        <NavContainer>
+            <Link to="/">
+                <HomeLogo src={DarkLogo} alt="Shiny Agency Logo" />
+            </Link>
             <StyledLink to="/">Accueil</StyledLink>
             <StyledLink to="/survey/42">Questionnaire</StyledLink>
             <StyledLink to="/freelances">Freelances</StyledLink>
             <StyledLink to="/survey/1" $isFullLink>
                 Faire le test
             </StyledLink>
-        </nav>
+        </NavContainer>
     );
 }
 
