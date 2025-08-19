@@ -6,18 +6,21 @@ import DefaultPicture from '../../assets/profile.png';
 //Styler les composants
 const CardLabel = styled.span`
     color: #5843e4;
+    padding-left: 15px;
     font-size: 22px;
-    font-weight: bold;
+    font-weight: normal;
 `;
 const CardImage = styled.img`
-    height: 80px;
-    width: 80px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
+    align-self: center;
 `;
 const CardTitle = styled.span`
-    font-size: 18px;
-    font-weight: bold;
-    color: #0e60b3ff;
+    font-size: 22px;
+    font-weight: normal;
+    color: black;
+    align-self: center;
 `;
 // Noir : #000000
 // Gris foncé : #333333
@@ -28,10 +31,12 @@ const CardTitle = styled.span`
 const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     padding: 15px;
     background-color: ${colors.backgroundLight};
     border-radius: 30px;
-    width: 350px;
+    width: 300px;
+    height: 300px;
     transition: 200ms;
     &:hover {
         cursor: pointer;
@@ -42,7 +47,6 @@ const CardWrapper = styled.div`
 function Card({ label = '', title = '', picture = 'DefaultPicture' }) {
     return (
         <CardWrapper
-            style={{ display: 'flex', flexDirection: 'column', padding: 15 }}
         >
             <CardLabel>{label}</CardLabel>
             <CardImage src={picture} alt="freelance" height={80} width={80} />

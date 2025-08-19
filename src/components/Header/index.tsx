@@ -4,7 +4,11 @@ import { StyledLink } from '../../utils/style/Atoms';
 import DarkLogo from '../../assets/dark-logo.png';
 
 const HomeLogo = styled.img`
-    height: 70px;
+    height: 40px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 const NavContainer = styled.nav`
@@ -18,7 +22,7 @@ function Header() {
     return (
         <NavContainer>
             <Link to="/">
-                <HomeLogo src={DarkLogo} alt="Shiny Agency Logo" />
+                <HomeLogo src={DarkLogo} />
             </Link>
             <StyledLink to="/">Accueil</StyledLink>
             <StyledLink to="/survey/42">Questionnaire</StyledLink>

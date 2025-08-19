@@ -1,46 +1,63 @@
-import DefaultPicture from '../../assets/profile.png';
 import Card from '../../components/Card';
 import styled from 'styled-components';
+import colors from '../../utils/style/colors';
 
 const CardsContainer = styled.div`
     display: grid;
     gap: 24px;
     grid-template-rows: 350px 350px;
     grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
 `;
+
+const PageTitle = styled.h1`
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    padding-bottom: 30px; 
+`;
+
+const PageSubtitle = styled.h2`
+    font-size: 20px;
+    color: ${colors.secondary};
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 30px;
+`;
+
+const freelanceProfiles = [
+    {
+        name: 'Aimee Lee',
+        jobTitle: 'Développeuse Fullstack',
+    },
+    {
+        name: 'Jane Doe',
+        jobTitle: 'Devops',
+    },
+    {
+        name: 'John Doe',
+        jobTitle: 'Developpeur frontend',
+    },
+    {
+        name: 'Jeanne Biche',
+        jobTitle: 'Développeuse backend',
+    },
+];
+
 function Freelances() {
-    const freelanceProfiles = [
-        {
-            name: 'Aimee Mardja',
-            jobTitle: 'Développeuse Fullstack',
-            picture: DefaultPicture,
-        },
-        {
-            name: 'Jane Doe',
-            jobTitle: 'Devops',
-            picture: DefaultPicture,
-        },
-        {
-            name: 'John Doe',
-            jobTitle: 'Developpeur frontend',
-            picture: DefaultPicture,
-        },
-        {
-            name: 'Jeanne Biche',
-            jobTitle: 'Développeuse backend',
-            picture: DefaultPicture,
-        },
-    ];
     return (
-        <div style={{ padding: 20 }}>
-            <h1>Nos Freelances</h1>
+        <div>
+            <PageTitle>Trouvez votre prestataire</PageTitle>
+            <PageSubtitle>
+                Chez Shiny nous réunissons les meilleurs profils pour vous.
+            </PageSubtitle>
             <CardsContainer>
                 {freelanceProfiles.map((profile, index) => (
                     <Card
-                        key={index}
+                        key={`${profile.name}-${index}`}
                         label={profile.jobTitle}
                         title={profile.name}
-                        picture={profile.picture}
                     />
                 ))}
             </CardsContainer>
