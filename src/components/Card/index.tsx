@@ -44,10 +44,9 @@ const CardWrapper = styled.div`
     }
 `;
 
-function Card({ label = '', title = '', picture = 'DefaultPicture' }) {
+function Card({ label = '', title = '', picture = DefaultPicture }) {
     return (
-        <CardWrapper
-        >
+        <CardWrapper>
             <CardLabel>{label}</CardLabel>
             <CardImage src={picture} alt="freelance" height={80} width={80} />
             <CardTitle>{title}</CardTitle>

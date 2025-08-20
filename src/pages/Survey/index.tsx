@@ -47,15 +47,32 @@ function Survey() {
     //   }
     // }
 
+    // useEffect(() => {
+    //     // fetchData()
+    //     setDataLoading(true);
+    //     fetch(`http://localhost:8000/survey`).then((response) =>
+    //         response.json().then(({ surveyData }) => {
+    //             setSurveyData(surveyData);
+    //             setDataLoading(false);
+    //         })
+    //     );
+    // }, []);
+
     useEffect(() => {
-        // fetchData()
-        setDataLoading(true);
-        fetch(`http://localhost:8000/survey`).then((response) =>
-            response.json().then(({ surveyData }) => {
+        async function fetchSurvey() {
+            setDataLoading(true);
+            try {
+                const response = await fetch(`http://localhost:8000/survey`);
+
+                const { surveyData } = await response.json();
                 setSurveyData(surveyData);
+            } catch (error) {
+                console.log(error);
+            } finally {
                 setDataLoading(false);
-            })
-        );
+            }
+        }
+        fetchSurvey();
     }, []);
 
     return (
@@ -64,7 +81,9 @@ function Survey() {
             {isDataLoading ? (
                 <Loader />
             ) : (
-                <QuestionContent>{surveyData[questionNumberInt]}</QuestionContent>
+                <QuestionContent>
+                    {surveyData[questionNumberInt]}
+                </QuestionContent>
             )}
             <LinkWrapper>
                 <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>

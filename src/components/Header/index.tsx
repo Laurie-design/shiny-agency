@@ -4,11 +4,7 @@ import { StyledLink } from '../../utils/style/Atoms';
 import DarkLogo from '../../assets/dark-logo.png';
 
 const HomeLogo = styled.img`
-    height: 40px;
-    padding: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    height: 70px;
 `;
 
 const NavContainer = styled.nav`
@@ -24,12 +20,13 @@ function Header() {
             <Link to="/">
                 <HomeLogo src={DarkLogo} />
             </Link>
-            <StyledLink to="/">Accueil</StyledLink>
-            <StyledLink to="/survey/42">Questionnaire</StyledLink>
-            <StyledLink to="/freelances">Freelances</StyledLink>
-            <StyledLink to="/survey/1" $isFullLink>
-                Faire le test
-            </StyledLink>
+            <div>
+                <StyledLink to="/">Accueil</StyledLink>
+                <StyledLink to="/freelances">Profils</StyledLink>
+                <StyledLink to="/survey/1" $isFullLink>
+                    Faire le test
+                </StyledLink>
+            </div>
         </NavContainer>
     );
 }
